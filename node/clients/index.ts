@@ -2,6 +2,7 @@ import { IOClients } from '@vtex/api'
 
 import Status from './status'
 import Catalog from './catalog'
+import PokeApi from './pokeapi'
 
 // Extend the default IOClients implementation with our own custom clients.
 export class Clients extends IOClients {
@@ -13,4 +14,7 @@ export class Clients extends IOClients {
     return this.getOrSet('catalog', Catalog)
   }
 
+  public get pokeapi() {
+    return this.getOrSet('pokeapi', PokeApi)
+  }
 }

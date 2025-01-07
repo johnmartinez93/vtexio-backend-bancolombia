@@ -17,6 +17,17 @@
     "products": {
       "path": "/_v/products",
       "public": true
+    },
+    "pokemon": {
+      "path": "/_v/pokemon",
+      "public": false,
+      "policies": [
+        {
+          "effect": "allow",
+          "actions": ["get"],
+          "principals": ["*"]
+        }
+      ]
     }
   }
 }
