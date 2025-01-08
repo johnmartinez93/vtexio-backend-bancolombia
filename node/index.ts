@@ -7,6 +7,8 @@ import { validate } from './middlewares/validate'
 import { holaMundo } from './middlewares/holaMundo'
 import { getProductByID } from './middlewares/products/getProductById'
 import { getPokemon } from './middlewares/pokemonapi/getPokemon'
+import { ping } from './middlewares/ping'
+import { saveCustomer } from './middlewares/customer/saveCustomer'
 
 const TIMEOUT_MS = 800
 
@@ -38,6 +40,9 @@ declare global {
 export default new Service({
   clients,
   routes: {
+    ping: method({
+      POST: [ping]
+    }),
     status: method({
       GET: [validate, status],
     }),
@@ -50,5 +55,8 @@ export default new Service({
     pokemon: method({
       GET: [getPokemon],
     }),
+    customer: method({
+      POST: [saveCustomer]
+    })
   },
 })
