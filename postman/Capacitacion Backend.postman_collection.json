@@ -1,0 +1,202 @@
+{
+	"info": {
+		"_postman_id": "cc23cd77-4401-4704-8fa3-f51698297369",
+		"name": "Capacitacion Backend",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20302085",
+		"_collection_link": "https://itglobers-apis.postman.co/workspace/VTEX-ITG~8d4550f0-f765-4051-9375-d0e17a784450/collection/20302085-cc23cd77-4401-4704-8fa3-f51698297369?action=share&source=collection_link&creator=20302085"
+	},
+	"item": [
+		{
+			"name": "Create or Update Schema",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "VtexIdclientAutCookie",
+						"value": "eyJhbGciOiJFUzI1NiIsImtpZCI6IjM2MzdGRDA5OTY4NDFGQkQyNjQ2RTE0RUMzMjU2ODU5NzBGQTdBOTgiLCJ0eXAiOiJqd3QifQ.eyJzdWIiOiJqb2huLm1hcnRpbmV6QGl0Z2xvYmVycy5jb20iLCJhY2NvdW50IjoicWFta3Btb3ZpbGlkYWRjbyIsImF1ZGllbmNlIjoiYWRtaW4iLCJzZXNzIjoiNjJmODJjM2EtMDBjNS00N2RjLTkyMWYtNGU2ZDMwMGM0N2JhIiwiZXhwIjoxNzM2NDMwMTg5LCJ0eXBlIjoidXNlciIsInVzZXJJZCI6Ijc1ZjM5MGIyLTFiNTEtNGFmYy1iN2UwLWY1ODI0MjRhZTA1YiIsImlhdCI6MTczNjM0Mzc4OSwiaXNSZXByZXNlbnRhdGl2ZSI6ZmFsc2UsImlzcyI6InRva2VuLWVtaXR0ZXIiLCJqdGkiOiI1NTdiYmY5Ni1iZjllLTQ3MWUtODcxNy1kZmVmYTE4NWIzZDcifQ.MvudYTp9I4G6XUvucpRBWm5mXJWynwjnCoyCIWfggTdxT32-pU2Mig_ZLME_3fjzE2PhdTO0sisq9KMu_E881g",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"$schema\": \"http://json-schema.org/draft-07/schema#\",\n    \"type\": \"object\",\n    \"title\": \"Customer\",\n    \"properties\": {\n        \"first_name\": {\n            \"description\": \"Customer name\",\n            \"type\": \"string\"\n        },\n        \"last_name\": {\n            \"description\": \"Customer last name\",\n            \"type\": \"string\"\n        },\n        \"document_id\": {\n            \"description\": \"Customer id\",\n            \"type\": \"integer\"\n        },\n        \"gender\": {\n            \"description\": \"Customer gender\",\n            \"type\": \"string\"\n        }\n    },\n    \"required\": [\n        \"first_name\",\n        \"document_id\"\n    ],\n    \"v-cache\": false,\n    \"v-indexed\": [\n        \"document_id\"\n    ],\n    \"v-immediate-indexing\": true,\n    \"v-security\": {\n        \"allowGetAll\": true\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{workspace}}--qamkpmovilidadco.myvtex.com/api/dataentities/:dataEntityName/schemas/:name",
+					"protocol": "https",
+					"host": [
+						"{{workspace}}--qamkpmovilidadco",
+						"myvtex",
+						"com"
+					],
+					"path": [
+						"api",
+						"dataentities",
+						":dataEntityName",
+						"schemas",
+						":name"
+					],
+					"query": [
+						{
+							"key": "_fields",
+							"value": "_all",
+							"disabled": true
+						},
+						{
+							"key": "_schema",
+							"value": "3.16.4-hkignore-{{workspace}}",
+							"disabled": true
+						},
+						{
+							"key": null,
+							"value": "{{account}}_return_app_orderRefundsSummary",
+							"disabled": true
+						}
+					],
+					"variable": [
+						{
+							"key": "dataEntityName",
+							"value": "customer"
+						},
+						{
+							"key": "name",
+							"value": "0.0.1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Schame",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "VtexIdclientAutCookie",
+						"value": "eyJhbGciOiJFUzI1NiIsImtpZCI6IjM2MzdGRDA5OTY4NDFGQkQyNjQ2RTE0RUMzMjU2ODU5NzBGQTdBOTgiLCJ0eXAiOiJqd3QifQ.eyJzdWIiOiJqb2huLm1hcnRpbmV6QGl0Z2xvYmVycy5jb20iLCJhY2NvdW50IjoicWFta3Btb3ZpbGlkYWRjbyIsImF1ZGllbmNlIjoiYWRtaW4iLCJzZXNzIjoiNjJmODJjM2EtMDBjNS00N2RjLTkyMWYtNGU2ZDMwMGM0N2JhIiwiZXhwIjoxNzM2NDMwMTg5LCJ0eXBlIjoidXNlciIsInVzZXJJZCI6Ijc1ZjM5MGIyLTFiNTEtNGFmYy1iN2UwLWY1ODI0MjRhZTA1YiIsImlhdCI6MTczNjM0Mzc4OSwiaXNSZXByZXNlbnRhdGl2ZSI6ZmFsc2UsImlzcyI6InRva2VuLWVtaXR0ZXIiLCJqdGkiOiI1NTdiYmY5Ni1iZjllLTQ3MWUtODcxNy1kZmVmYTE4NWIzZDcifQ.MvudYTp9I4G6XUvucpRBWm5mXJWynwjnCoyCIWfggTdxT32-pU2Mig_ZLME_3fjzE2PhdTO0sisq9KMu_E881g",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://{{workspace}}--qamkpmovilidadco.myvtex.com/api/dataentities/:dataEntityName/schemas/:schema",
+					"protocol": "https",
+					"host": [
+						"{{workspace}}--qamkpmovilidadco",
+						"myvtex",
+						"com"
+					],
+					"path": [
+						"api",
+						"dataentities",
+						":dataEntityName",
+						"schemas",
+						":schema"
+					],
+					"variable": [
+						{
+							"key": "dataEntityName",
+							"value": "customer"
+						},
+						{
+							"key": "schema",
+							"value": "0.0.1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Save Customer",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"first_name\": \"John\",\n    \"last_name\": \"Martinez\",\n    \"document_id\": 1234567890\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://session06--qamkpmovilidadco.myvtex.com/_v/customer",
+					"protocol": "https",
+					"host": [
+						"session06--qamkpmovilidadco",
+						"myvtex",
+						"com"
+					],
+					"path": [
+						"_v",
+						"customer"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Scroll Documents",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "VtexIdclientAutCookie",
+						"value": "eyJhbGciOiJFUzI1NiIsImtpZCI6IjM2MzdGRDA5OTY4NDFGQkQyNjQ2RTE0RUMzMjU2ODU5NzBGQTdBOTgiLCJ0eXAiOiJqd3QifQ.eyJzdWIiOiJqb2huLm1hcnRpbmV6QGl0Z2xvYmVycy5jb20iLCJhY2NvdW50IjoicWFta3Btb3ZpbGlkYWRjbyIsImF1ZGllbmNlIjoiYWRtaW4iLCJzZXNzIjoiNjJmODJjM2EtMDBjNS00N2RjLTkyMWYtNGU2ZDMwMGM0N2JhIiwiZXhwIjoxNzM2NDMwMTg5LCJ0eXBlIjoidXNlciIsInVzZXJJZCI6Ijc1ZjM5MGIyLTFiNTEtNGFmYy1iN2UwLWY1ODI0MjRhZTA1YiIsImlhdCI6MTczNjM0Mzc4OSwiaXNSZXByZXNlbnRhdGl2ZSI6ZmFsc2UsImlzcyI6InRva2VuLWVtaXR0ZXIiLCJqdGkiOiI1NTdiYmY5Ni1iZjllLTQ3MWUtODcxNy1kZmVmYTE4NWIzZDcifQ.MvudYTp9I4G6XUvucpRBWm5mXJWynwjnCoyCIWfggTdxT32-pU2Mig_ZLME_3fjzE2PhdTO0sisq9KMu_E881g",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://qamkpmovilidadco.myvtex.com/api/dataentities/:dataEntityName/scroll?_schema=0.0.1&_fields=_all",
+					"protocol": "https",
+					"host": [
+						"qamkpmovilidadco",
+						"myvtex",
+						"com"
+					],
+					"path": [
+						"api",
+						"dataentities",
+						":dataEntityName",
+						"scroll"
+					],
+					"query": [
+						{
+							"key": "_sort",
+							"value": "createdIn DESC",
+							"disabled": true
+						},
+						{
+							"key": "_where",
+							"value": "orderId=1100430954-01",
+							"disabled": true
+						},
+						{
+							"key": "_schema",
+							"value": "0.0.1"
+						},
+						{
+							"key": "_fields",
+							"value": "_all"
+						}
+					],
+					"variable": [
+						{
+							"key": "dataEntityName",
+							"value": "customer"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
