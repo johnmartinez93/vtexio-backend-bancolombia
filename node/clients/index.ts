@@ -1,8 +1,12 @@
 import { IOClients } from '@vtex/api'
+import { masterDataFor } from '@vtex/clients'
+import type { Customer } from 'vtex.service-example'
 
 import Status from './status'
 import Catalog from './catalog'
 import PokeApi from './pokeapi'
+
+
 
 // Extend the default IOClients implementation with our own custom clients.
 export class Clients extends IOClients {
@@ -16,5 +20,9 @@ export class Clients extends IOClients {
 
   public get pokeapi() {
     return this.getOrSet('pokeapi', PokeApi)
+  }
+
+  public get customer() {
+    return this.getOrSet('customer', masterDataFor<Customer>('customer'))
   }
 }

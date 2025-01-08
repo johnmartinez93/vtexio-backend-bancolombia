@@ -9,6 +9,8 @@ import { getProductByID } from './middlewares/products/getProductById'
 import { getPokemon } from './middlewares/pokemonapi/getPokemon'
 import { ping } from './middlewares/ping'
 import { saveCustomer } from './middlewares/customer/saveCustomer'
+import { getCustomers } from './middlewares/customer/getCustomers'
+import { setSchemaVersion } from './middlewares/setSchemaVersion'
 
 const TIMEOUT_MS = 800
 
@@ -56,7 +58,8 @@ export default new Service({
       GET: [getPokemon],
     }),
     customer: method({
-      POST: [saveCustomer]
+      POST: [setSchemaVersion, saveCustomer],
+      GET: [setSchemaVersion, getCustomers],
     })
   },
 })

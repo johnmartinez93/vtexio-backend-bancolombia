@@ -1,0 +1,35 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "title": "Customer",
+  "properties": {
+      "first_name": {
+          "description": "Customer name",
+          "type": "string"
+      },
+      "last_name": {
+          "description": "Customer last name",
+          "type": "string"
+      },
+      "document_id": {
+          "description": "Customer id",
+          "type": "integer"
+      },
+      "gender": {
+          "description": "Customer gender",
+          "type": "string"
+      }
+  },
+  "required": [
+      "first_name",
+      "document_id"
+  ],
+  "v-cache": false,
+  "v-indexed": [
+      "document_id"
+  ],
+  "v-immediate-indexing": true,
+  "v-security": {
+      "allowGetAll": true
+  }
+}
