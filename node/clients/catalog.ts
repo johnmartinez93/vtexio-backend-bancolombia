@@ -32,6 +32,12 @@ export default class Catalog extends JanusClient {
     })
   }
 
+  public async createSkuFile(skuId: any, skuFileData: any): Promise<any> {
+    return this.http.post(this.routes.createSkuFile(skuId), skuFileData, {
+      metric: 'create-sku-file',
+    })
+  }
+
   private get routes() {
     return {
       getProductById: (productId: string) => {
@@ -42,6 +48,9 @@ export default class Catalog extends JanusClient {
       },
       createSku: () => {
         return `${basePath}/stockkeepingunit`
+      },
+      createSkuFile: (skuId: string) => {
+        return `${basePath}/stockkeepingunit/${skuId}/file`
       }
     }
   }

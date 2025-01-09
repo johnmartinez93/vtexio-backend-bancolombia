@@ -34,6 +34,10 @@
       "path": "/_v/sku",
       "public": true
     },
+    "skusFile": {
+      "path": "/_v/sku/:skuId/file",
+      "public": true
+    },
     "pokemon": {
       "path": "/_v/pokemon",
       "public": false,
