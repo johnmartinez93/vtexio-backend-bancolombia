@@ -1,6 +1,8 @@
 import type { InstanceOptions, IOContext } from '@vtex/api'
 import { JanusClient } from '@vtex/api'
 
+const basePath = '/api/catalog/pvt'
+
 export default class Catalog extends JanusClient {
   constructor(context: IOContext, options?: InstanceOptions) {
     super(context, {
@@ -18,10 +20,29 @@ export default class Catalog extends JanusClient {
     })
   }
 
+  public async createProduct(product: any): Promise<any> {
+    return this.http.post(this.routes.createProduct(), product, {
+      metric: 'create-product',
+    })
+  }
+
+  public async createSku(sku: any): Promise<any> {
+    return this.http.post(this.routes.createSku(), sku, {
+      metric: 'create-product',
+    })
+  }
+
   private get routes() {
     return {
       getProductById: (productId: string) => {
-        return `/api/catalog/pvt/product/${productId}`
-      }}
+        return `${basePath}/product/${productId}`
+      },
+      createProduct: () => {
+        return `${basePath}/product`
+      },
+      createSku: () => {
+        return `${basePath}/stockkeepingunit`
+      }
     }
+  }
 }

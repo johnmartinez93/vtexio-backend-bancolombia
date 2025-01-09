@@ -7,7 +7,6 @@ export async function saveCustomer(ctx: Context, next: () => Promise<any>) {
 
   const body = await json(req) as Customer
 
-
   try {
     const response = await customer.save(body)
 

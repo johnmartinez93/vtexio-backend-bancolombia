@@ -1,25 +1,16 @@
 import { json } from "co-body"
-
-interface Customer {
-  first_name: string
-  last_name: string
-  document_id: string
-}
+import { Customer } from "vtex.service-example"
 
 export async function updateCustomer(ctx: Context, next: () => Promise<any>) {
-  const { req, clients: { masterdata } } = ctx
+  const { req, clients: { customer }, vtex: { route: { params } } } = ctx
 
-  // const { documentId } = params as { documentId: string }
+  const { id } = params as { id: string }
   const body = await json(req) as Customer
 
   try {
-    const response = await masterdata.createDocument({
-      dataEntity: 'customer',
-      fields: body,
-      schema: '0.0.1'
-    })
+    const response = await customer.update(id, body)
 
-    ctx.status = 201
+    ctx.status = 200
     ctx.body = response
   } catch (error) {
     console.error(error)

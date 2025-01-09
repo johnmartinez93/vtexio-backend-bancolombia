@@ -6,6 +6,10 @@
   "maxReplicas": 4,
   "workers": 1,
   "routes": {
+    "customerUpdate": {
+      "path": "/_v/customer/:id/update",
+      "public": true
+    },
     "customer": {
       "path": "/_v/customer/*documentId",
       "public": true
@@ -24,6 +28,10 @@
     },
     "products": {
       "path": "/_v/products",
+      "public": true
+    },
+    "skus": {
+      "path": "/_v/sku",
       "public": true
     },
     "pokemon": {

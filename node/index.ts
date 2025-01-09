@@ -11,6 +11,9 @@ import { ping } from './middlewares/ping'
 import { saveCustomer } from './middlewares/customer/saveCustomer'
 import { getCustomers } from './middlewares/customer/getCustomers'
 import { setSchemaVersion } from './middlewares/setSchemaVersion'
+import { updateCustomer } from './middlewares/customer/updateCustomer'
+import { createProduct } from './middlewares/products/createProduct'
+import { createSku } from './middlewares/products/createSku'
 
 const TIMEOUT_MS = 800
 
@@ -53,6 +56,10 @@ export default new Service({
     }),
     products: method({
       GET: [getProductByID],
+      POST: [createProduct]
+    }),
+    skus: method({
+      POST: [createSku]
     }),
     pokemon: method({
       GET: [getPokemon],
@@ -60,6 +67,9 @@ export default new Service({
     customer: method({
       POST: [setSchemaVersion, saveCustomer],
       GET: [setSchemaVersion, getCustomers],
+    }),
+    customerUpdate: method({
+      POST: [setSchemaVersion, updateCustomer],
     })
   },
 })
