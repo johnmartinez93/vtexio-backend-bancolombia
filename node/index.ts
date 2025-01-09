@@ -15,6 +15,7 @@ import { updateCustomer } from './middlewares/customer/updateCustomer'
 import { createProduct } from './middlewares/products/createProduct'
 import { createSku } from './middlewares/products/createSku'
 import { createSkuFile } from './middlewares/products/createSkuFile'
+import { createOrUpdatePrices } from './middlewares/pricing/createOrUpdatePrice'
 
 const TIMEOUT_MS = 800
 
@@ -74,6 +75,9 @@ export default new Service({
     }),
     customerUpdate: method({
       POST: [setSchemaVersion, updateCustomer],
+    }),
+    pricing: method({
+      POST: [setSchemaVersion, createOrUpdatePrices],
     })
   },
 })

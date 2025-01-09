@@ -38,6 +38,10 @@
       "path": "/_v/sku/:skuId/file",
       "public": true
     },
+    "pricing": {
+      "path": "/_v/pricing/:skuId",
+      "public": true
+    },
     "pokemon": {
       "path": "/_v/pokemon",
       "public": false,

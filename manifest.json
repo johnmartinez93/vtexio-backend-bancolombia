@@ -35,7 +35,7 @@
       "name": "outbound-access",
       "attrs": {
         "host": "api.vtex.com",
-        "path": "/api/dataentities/*"
+        "path": "/api/*"
       }
     },
     {
@@ -49,6 +49,9 @@
       "name": "ViewProduct"
     },
     {
+      "name": "AlterarPrecoSku"
+    },
+    {
       "name": "colossus-fire-event"
     },
     {
@@ -58,5 +61,16 @@
       "name": "ADMIN_DS"
     }
   ],
+  "settingsSchema": {
+    "title": "Service Example",
+    "type": "object",
+    "properties": {
+      "SecretKey": {
+        "title": "SECRET KEY",
+        "description": "Enter your SECRET KEY to access external client",
+        "type": "string"
+      }
+    }
+  },
   "$schema": "https://raw.githubusercontent.com/vtex/node-vtex-api/master/gen/manifest.schema"
 }

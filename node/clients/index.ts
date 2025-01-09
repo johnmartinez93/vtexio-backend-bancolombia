@@ -5,6 +5,7 @@ import type { Customer } from 'vtex.service-example'
 import Status from './status'
 import Catalog from './catalog'
 import PokeApi from './pokeapi'
+import Pricing from './pricing'
 
 
 
@@ -24,5 +25,9 @@ export class Clients extends IOClients {
 
   public get customer() {
     return this.getOrSet('customer', masterDataFor<Customer>('customer'))
+  }
+
+  public get pricing() {
+    return this.getOrSet('pricing', Pricing)
   }
 }
