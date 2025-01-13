@@ -1,19 +1,16 @@
+import { customerService } from "../../services/customerService"
+
 export async function getCustomers(ctx: Context, next: () => Promise<any>) {
-  const { vtex: { route: { params } }, clients: { customer } } = ctx
+  const { vtex: { route: { params } } } = ctx
 
   const { documentId } = params as { documentId: string }
 
   try {
     let response
     if (!documentId) {
-      response = await customer.scroll({
-        fields:['_all'],
-      })
+      response = await customerService(ctx).list()
     } else {
-      response = await customer.search({
-        page: 1,
-        pageSize: 1
-      }, ['first_name', 'document_id'], 'createdIn DESC', `document_id=${documentId}`)
+      response = await customerService(ctx).getByDocumentId(documentId)
     }
 
     ctx.status = 200

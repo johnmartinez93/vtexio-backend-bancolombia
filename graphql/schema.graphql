@@ -1,0 +1,21 @@
+input BookInput {
+  name: String!
+  author: String!
+}
+
+type Customer {
+  first_name: String!
+  last_name: String
+  document_id: String
+  gender: String
+}
+
+type Query {
+  customers: [Customer]
+  books(from: Int = 0, to: Int = 4): String
+}
+
+
+type Mutation {
+  newBook(book: BookInput): String
+}

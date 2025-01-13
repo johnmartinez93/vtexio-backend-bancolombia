@@ -1,14 +1,15 @@
 import { json } from "co-body"
 import { Customer } from "vtex.service-example"
+import { customerService } from "../../services/customerService"
 
 
 export async function saveCustomer(ctx: Context, next: () => Promise<any>) {
-  const { req, clients: { customer } } = ctx
+  const { req } = ctx
 
   const body = await json(req) as Customer
 
   try {
-    const response = await customer.save(body)
+    const response = await customerService(ctx).save(body)
 
     ctx.status = 201
     ctx.body = response

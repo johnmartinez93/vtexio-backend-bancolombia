@@ -16,6 +16,9 @@ import { createProduct } from './middlewares/products/createProduct'
 import { createSku } from './middlewares/products/createSku'
 import { createSkuFile } from './middlewares/products/createSkuFile'
 import { createOrUpdatePrices } from './middlewares/pricing/createOrUpdatePrice'
+import { books } from './resolvers/books'
+import { newBook } from './resolvers/newBooks'
+import { customers } from './resolvers/customer/customers'
 
 const TIMEOUT_MS = 800
 
@@ -46,6 +49,15 @@ declare global {
 
 export default new Service({
   clients,
+  graphql: { resolvers: {
+    Query: {
+      books,
+      customers
+    },
+    Mutation: {
+      newBook
+    }
+  } },
   routes: {
     ping: method({
       POST: [ping]
